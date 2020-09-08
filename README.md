@@ -7,3 +7,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 
 <h1>More ScreenShots Available in src/assets/project screenshots</h1>
+
+
+<h2 style="color: red;">User side Coming Soon.....</h2>
