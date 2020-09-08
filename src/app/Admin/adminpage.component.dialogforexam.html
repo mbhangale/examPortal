@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Add Question</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Add Exam</mat-label>
+    <input matInput [(ngModel)]="data.newexam">
+</mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button  (click)="onNoClick()">Cancel</button>
+  <button mat-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>Add</button>
+</div>

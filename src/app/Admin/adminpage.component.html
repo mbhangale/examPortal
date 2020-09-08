@@ -1,0 +1,102 @@
+
+
+<mat-toolbar>
+  <mat-selection-list #exams [multiple]="false">
+    <mat-toolbar-row>
+      <span><h1>List Of Exams Available</h1></span>
+      <span class="example-spacer"></span>
+      <button mat-raised-button color="accent" (click)="openDialogForExam()">Add Exam</button>
+    </mat-toolbar-row>
+    <mat-divider></mat-divider>
+
+    <mat-list-option *ngFor="let exam of availableExams"  [value]="exam.examname">
+      <mat-toolbar-row>
+        <span> {{ exam.examname }} </span>
+        <span class="example-spacer"></span>
+        <button mat-raised-button color="primary" (click)="openDialog(exams.selectedOptions.selected[0]?.value)">Add Question</button>
+
+        <button mat-button  matSuffix mat-icon-button aria-label="Delete" (click)="deleteExam(exam)">
+          <mat-icon >delete</mat-icon>  
+        </button>
+        </mat-toolbar-row>
+    </mat-list-option>
+  </mat-selection-list>
+</mat-toolbar>
+
+
+<mat-card-actions>
+  <span class="example-spacer"></span>
+  <button type="submit" mat-raised-button color="primary" (click)="getQuestionsForExam(exams.selectedOptions.selected[0]?.value)">Show Questions</button>
+</mat-card-actions>
+
+      <p>Options selected: {{ exams.selectedOptions.selected[0]?.value }}</p>
+
+      <mat-accordion>
+          <mat-expansion-panel *ngFor="let quest of questionsForSelectedExam">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+               <span>{{quest.question}}</span>
+               <span class="example-spacer"></span> 
+               <button mat-button  matSuffix mat-icon-button aria-label="Delete" (click)="deleteQuestion(quest)">
+                <mat-icon >delete</mat-icon>
+                </button>
+              </mat-panel-title>
+             
+            </mat-expansion-panel-header>
+            <mat-grid-list cols="2" rowHeight="4:0.5">
+              <mat-grid-tile><p>
+                <mat-label>
+                  1. 
+                </mat-label>
+                <mat-form-field class="example-form-field">
+                <input matInput type="text"  [(ngModel)]=quest.option1 >
+                <button mat-button *ngIf=quest.option1 matSuffix mat-icon-button aria-label="Clear" (click)="quest.option1=''">
+                <mat-icon>close</mat-icon>
+                </button>
+              </mat-form-field>
+              </p></mat-grid-tile>
+              <mat-grid-tile><p>
+                <mat-label>
+                  2. 
+                </mat-label>
+                <mat-form-field class="example-form-field">
+                <input matInput type="text"  [(ngModel)]=quest.option2 >
+                <button mat-button *ngIf=quest.option2 matSuffix mat-icon-button aria-label="Clear" (click)="quest.option2=''">
+                <mat-icon>close</mat-icon>
+                </button>
+              </mat-form-field>
+              </p></mat-grid-tile><mat-grid-tile><p>
+                <mat-label>
+                  3. 
+                </mat-label>
+                <mat-form-field class="example-form-field">
+                <input matInput type="text"  [(ngModel)]=quest.option3 >
+                <button mat-button *ngIf=quest.option3 matSuffix mat-icon-button aria-label="Clear" (click)="quest.option3=''">
+                <mat-icon>close</mat-icon>
+                </button>
+              </mat-form-field>
+              </p></mat-grid-tile><mat-grid-tile><p>
+                <mat-label>
+                  4. 
+                </mat-label>
+                <mat-form-field class="example-form-field">
+                <input matInput type="text"  [(ngModel)]=quest.option4 >
+                <button mat-button *ngIf=quest.option4 matSuffix mat-icon-button aria-label="Clear" (click)="quest.option4=''">
+                <mat-icon>close</mat-icon>
+                </button>
+              </mat-form-field>
+              </p></mat-grid-tile>
+              <mat-grid-tile><p>
+                <mat-label>
+                  Answer : 
+                </mat-label>
+                <mat-form-field class="example-form-field">
+                <input matInput type="text"  [(ngModel)]=quest.correctanswer >
+                <button mat-button *ngIf=quest.correctanswer matSuffix mat-icon-button aria-label="Clear" (click)="quest.correctanswer=''">
+                <mat-icon>close</mat-icon>
+                </button>
+              </mat-form-field>
+              </p></mat-grid-tile>
+            </mat-grid-list>
+          </mat-expansion-panel>
+        </mat-accordion>
