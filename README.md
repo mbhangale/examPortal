@@ -4,7 +4,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 <img src="https://github.com/mbhangale/examPortal/blob/master/src/assets/project%20screenshots/Screenshot%20(134).png">
 ## Development server
 <img src="https://github.com/mbhangale/examPortal/blob/master/src/assets/project%20screenshots/Screenshot%20(138).png">
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+
+<h1>More ScreenShots Available in src/assets/project screenshots</h1>
 
 ## Code scaffolding
 
